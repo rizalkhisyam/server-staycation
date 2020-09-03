@@ -14,9 +14,9 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
+          <%- include('../../partials/alert.ejs') %>
           <!-- Page Heading -->
-          <!-- <h1 class="h3 mb-4 text-gray-800">Wellcome to Category</h1> -->
+          <h1 class="h3 mb-4 text-gray-800">Bank</h1>
           <!-- <img src="/sb-admin-2/img/logo.svg" alt=""> -->
 
           <%- include('../../admin/bank/table.ejs') %>
@@ -58,5 +58,22 @@
       </div>
     </div>
   </div>
-
+  
+  <%- include('add_modal.ejs') %>
+  <%- include('edit_modal.ejs') %>
   <%- include('../../partials/js.ejs') %>
+
+  <script>
+    $('#dataTable').on('click', '.button-update', function(){
+      let id = $(this).data('id');
+      let nameBank = $(this).data('namebank');
+      let accountNumber = $(this).data('accountnumber');
+      let name = $(this).data('name');
+      // console.log('tes', nameBank);
+      $('#edit-modal').modal('show');
+      $('.id').val(id);
+      $('.nameBank').val(nameBank);
+      $('.accountNumber').val(accountNumber);
+      $('.name').val(name);
+    })
+  </script>
