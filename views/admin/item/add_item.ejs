@@ -1,4 +1,4 @@
-<form>
+<form action="/admin/item" method="POST" enctype="multipart/form-data">
     <div class="form-group">
       <label for="exampleInputEmail1">Title</label>
       <input type="text" name="title" class="form-control" placeholder="Enter title">
@@ -14,15 +14,18 @@
             <input type="text" name="city" class="form-control" placeholder="Enter city" required>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="exampleInputEmail1">Country</label>
                 <input type="text" name="country" class="form-control" placeholder="Enter country" required>
-                </div>
+                </div> -->
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Category</label>
-                <select name="categoryID" class="form-control">
-                <option value="">---- Category ----</option>
+                <select name="categoryId" class="form-control">
+                <option value="">-- Choose Category --</option>
+                <% for (let i = 0; i < category.length; i++){ %>
+                  <option value="<%= category[i].id %>"><%= category[i].name %></option>
+                <% } %>
                 </select>
                 </div>
 
@@ -35,10 +38,5 @@
                         <label for="exampleInputEmail1">Description</label>
                             <textarea name="about" class="form-control" cols="30" rows="10"></textarea>
                         </div>
-                    
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
