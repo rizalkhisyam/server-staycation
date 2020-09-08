@@ -73,10 +73,22 @@
     </div>
   </div>
 
+  <%- include('modal_edit_feature.ejs') %>
   <%- include('../../../partials/js.ejs') %>
   <script>
       $(document).ready(function() {
           $('#dataTableActivity').DataTable();
       });
-    CKEDITOR.replace( 'about' );
+    // CKEDITOR.replace( 'about' );
+
+    $('#dataTable').on('click', '.update-feature', function(){
+      let id = $(this).data('id');
+      let name = $(this).data('name');
+      let qty = $(this).data('qty');
+      console.log('ini isi:', id + name + qty);
+      $('#edit-feature').modal('show');
+      $('.id').val(id);
+      $('.name').val(name);
+      $('.qty').val(qty);
+    })
   </script>
