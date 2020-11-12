@@ -74,6 +74,7 @@
   </div>
 
   <%- include('modal_edit_feature.ejs') %>
+  <%- include('modal_edit_activity.ejs') %>
   <%- include('../../../partials/js.ejs') %>
   <script>
       $(document).ready(function() {
@@ -90,5 +91,16 @@
       $('.id').val(id);
       $('.name').val(name);
       $('.qty').val(qty);
-    })
+    });
+
+    $('#dataTableActivity').on('click', '.update-activity', function(){
+      let id = $(this).data('id');
+      let name = $(this).data('name');
+      let type = $(this).data('type');
+      console.log('ini isi:', id + name + type);
+      $('#edit-activity').modal('show');
+      $('.id').val(id);
+      $('.name').val(name);
+      $('.type').val(type);
+    });
   </script>
