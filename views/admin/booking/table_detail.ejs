@@ -21,7 +21,7 @@
                   <tbody>
                     <tr>
                         <td><%= booking.memberId.firstName %> <%= booking.memberId.lastName %></td>
-                        <td><%= booking.bankId.nameBank %></td>
+                        <td><%= booking.payments.bankFrom %></td>
                         <td>$ <%= booking.total %></td>
                         <td><%= booking.itemId.title %></td>
                     </tr>
@@ -29,7 +29,7 @@
                 </table>
               </div>
               
-              <% if(booking.payments.status == 'Proses'){ %>
+              <% if(booking.payments.status == 'Process'){ %>
               <div class="row">
                 <div class="col-2">
                   <form action="/admin/booking/<%= booking.id %>/confirmation?_method=PUT" method="POST" >

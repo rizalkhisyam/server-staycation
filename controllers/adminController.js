@@ -198,7 +198,7 @@ module.exports = {
     editBank: async (req, res) => {
         try {
             const { id, nameBank, accountNumber, name } = req.body;
-        const bank = await Bank.findOne({_id: id});
+            const bank = await Bank.findOne({_id: id});
         if(req.file == undefined){
             bank.name = name;
             bank.nameBank = nameBank;
